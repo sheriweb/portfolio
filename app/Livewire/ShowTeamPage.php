@@ -9,10 +9,12 @@ class ShowTeamPage extends Component
 {
     public function render()
     {
-        $teams = Team::all();
+        $teams = Team::latest()->get();
 
         return view('livewire.show-team-page', [
             'teams' => $teams
+        ])->layout('components.layouts.app', [
+            'title' => 'Our Team',
         ]);
     }
 }

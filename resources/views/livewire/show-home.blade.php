@@ -1,16 +1,28 @@
 <main>
+    <style>
+        .hero-title { font-weight:800; letter-spacing:-.5px; }
+        .hero-sub { color:#6b7280; font-size:1.05rem; }
+        .btn-mint { background:#d1fae5; color:#047857; border-color:#a7f3d0; }
+        .btn-mint:hover { background:#a7f3d0; color:#065f46; border-color:#6ee7b7; }
+        .service-card { background:#fff; border-radius:14px; box-shadow:0 8px 24px rgba(0,0,0,.06); transition:transform .2s, box-shadow .2s; }
+        .service-card:hover { transform: translateY(-4px); box-shadow:0 14px 30px rgba(0,0,0,.10); }
+        .service-icon { width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; background: var(--bg,#eef2ff); color: var(--fg,#4f46e5); }
+    </style>
     <section class="banner bg-tertiary position-relative overflow-hidden">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="block text-center text-lg-start pe-0 pe-xl-5">
-                        <h1 class="text-capitalize mb-4">Innovate. Excel. Succeed!</h1>
-                        <p class="mb-4">Unlocking Potential, Igniting Excellence</p>
-                        <a type="button"
-                           class="btn btn-primary" href="#"
-                           data-bs-toggle="modal"
-                           data-bs-target="#applyLoan">See
-                            More<span style="font-size: 14px;" class="ms-2 fas fa-arrow-right"></span></a>
+                        <h1 class="text-capitalize mb-3 hero-title">Innovate. Excel. Succeed!</h1>
+                        <p class="mb-4 hero-sub">We build fast, modern web & mobile experiences that elevate your brand.</p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <a wire:navigate href="#services" class="btn btn-primary">
+                                Explore Services <span class="ms-2 fas fa-arrow-right" style="font-size:14px;"></span>
+                            </a>
+                            <a wire:navigate href="{{ route('articles.index') }}" class="btn btn-mint">
+                                Read Articles
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -71,24 +83,38 @@
         </div>
     </section>
 
-    <section class="section">
+    <section id="services" class="section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="section-title pt-4">
-                        <p class="text-primary text-uppercase fw-bold mb-3">Our Services</p>
-                        <h1>Our online services</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipreiscing elit. Lacus penatibus tincidunt</p>
-                    </div>
+            <div class="row align-items-end mb-4">
+                <div class="col-lg-8">
+                    <h2 class="mb-2">Our Services</h2>
+                    <p class="text-muted mb-0">End-to-end solutions tailored to your goals.</p>
                 </div>
+                <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                    <a wire:navigate href="{{ route('service.page') }}" class="btn btn-outline-primary">View All</a>
+                </div>
+            </div>
+            <div class="row g-4">
                 @foreach($services as $key => $item)
-                    <div class="col-lg-4 col-md-6 service-item">
-                        <a wire:navigate class="text-black" href="{{route('service.detail', $item->id)}}">
-                            <div class="block"><span class="colored-box text-center h3 mb-4"> {{0}} {{ $key + 1}} </span>
-                                <h3 class="mb-3 service-title">{{$item->title}}</h3>
-                                <p class="mb-0 service-description">{{$item->short_description}}</p>
+                    @php
+                        $palettes = [
+                            ['bg' => '#eef2ff', 'fg' => '#4f46e5'],
+                            ['bg' => '#ecfeff', 'fg' => '#0891b2'],
+                            ['bg' => '#fef3c7', 'fg' => '#b45309'],
+                            ['bg' => '#fce7f3', 'fg' => '#be185d'],
+                            ['bg' => '#dcfce7', 'fg' => '#16a34a'],
+                        ];
+                        $p = $palettes[$key % count($palettes)];
+                    @endphp
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-card h-100 p-4 text-center">
+                            <div class="mx-auto mb-3 service-icon" style="--bg: {{ $p['bg'] }}; --fg: {{ $p['fg'] }};">
+                                <i class="{{ $item->icon_class ?: 'fas fa-cogs' }}"></i>
                             </div>
-                        </a>
+                            <h5 class="mb-2">{{$item->title}}</h5>
+                            <p class="text-muted mb-4" style="min-height: 48px;">{{$item->short_description}}</p>
+                            <a wire:navigate class="btn btn-sm btn-mint px-3" href="{{route('service.detail', $item->id)}}">View Details</a>
+                        </div>
                     </div>
                 @endforeach
             </div>

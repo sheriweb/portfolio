@@ -1,4 +1,12 @@
 <main>
+    <style>
+        /* Lightweight page-scoped styles for nicer cards */
+        .service-card { background: #fff; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,.10); }
+        .btn-mint { background:#d1fae5; color:#047857; border-color:#a7f3d0; }
+        .btn-mint:hover { background:#a7f3d0; color:#065f46; border-color:#6ee7b7; }
+        .service-icon { width:72px; height:72px; border-radius:50%; display:flex; align-items:center; justify-content:center; background: var(--bg, #eef2ff); color: var(--fg, #4f46e5); }
+    </style>
     <section class="page-header bg-tertiary">
         <div class="container">
             <div class="row">
@@ -65,17 +73,27 @@
 
     <section class="section">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center g-4">
                 @foreach($services as $key => $item)
-                    <div class="icon-box-item text-center col-lg-4 col-md-6 mb-4">
-                        <div class="rounded shadow py-5 px-4">
-                            <div class="icon"><i class="fas fa-user"></i>
+                    @php
+                        $palettes = [
+                            ['bg' => '#eef2ff', 'fg' => '#4f46e5'], // indigo
+                            ['bg' => '#ecfeff', 'fg' => '#0891b2'], // cyan
+                            ['bg' => '#fef3c7', 'fg' => '#b45309'], // amber
+                            ['bg' => '#fce7f3', 'fg' => '#be185d'], // pink
+                            ['bg' => '#dcfce7', 'fg' => '#16a34a'], // green
+                        ];
+                        $p = $palettes[$key % count($palettes)];
+                    @endphp
+                    <div class="col-lg-4 col-md-6">
+                        <div class="h-100 service-card p-5 text-center" style="transition: transform .2s, box-shadow .2s;">
+                            <div class="mx-auto mb-4 service-icon" style="--bg: {{ $p['bg'] }}; --fg: {{ $p['fg'] }};">
+                                <i class="{{ $item->icon_class ?: 'fas fa-cogs' }} fa-lg"></i>
                             </div>
-                            <h3 class="mb-3">{{$item->title}}</h3>
-                            <p class="mb-4">{{$item->short_description}}</p>
-                            <a class="btn btn-sm btn-outline-primary" href="{{route('service.detail', $item->id)}}">
+                            <h3 class="mb-2" style="font-weight:700;">{{$item->title}}</h3>
+                            <p class="text-muted mb-4" style="min-height: 56px;">{{$item->short_description}}</p>
+                            <a wire:navigate class="btn btn-sm btn-mint px-3" href="{{route('service.detail', $item->id)}}">
                                 View Details
-                                <i class="las la-arrow-right ms-1"></i>
                             </a>
                         </div>
                     </div>

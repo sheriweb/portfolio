@@ -42,8 +42,8 @@
                     <li class="nav-item "> <a class="nav-link" href="about.html">About Us</a></li>
                     <li class="nav-item "> <a wire:navigate  class="nav-link" href="{{route('service.page')}}">Services</a></li>
                     <li class="nav-item "> <a wire:navigate class="nav-link" href="{{route('team.page')}}">Our Team</a></li>
-                    <li class="nav-item "><a class="nav-link " href="blog.html">Blog</a></li>
-                    <li class="nav-item "><a class="nav-link " href="faq.html">FAQ</a></li>
+                    <li class="nav-item "><a wire:navigate class="nav-link " href="{{ route('articles.index') }}">Blog</a></li>
+                    <li class="nav-item "><a wire:navigate class="nav-link " href="{{ route('faqs.page') }}">FAQs</a></li>
                 </ul>
                 <a href="#!" class="btn btn-outline-primary">Contact Us</a>
             </div>
@@ -109,18 +109,15 @@
         <div class="row justify-content-between">
             <div class="col-lg-2 col-md-4 col-6 mb-4">
                 <div class="footer-widget">
-                    <h5 class="mb-4 text-primary font-secondary">Service</h5>
+                    <h5 class="mb-4 text-primary font-secondary">Services</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="service-details.html">Digital Marketing</a>
-                        </li>
-                        <li class="mb-2"><a href="service-details.html">Web Design</a>
-                        </li>
-                        <li class="mb-2"><a href="service-details.html">Logo Design</a>
-                        </li>
-                        <li class="mb-2"><a href="service-details.html">Graphic Design</a>
-                        </li>
-                        <li class="mb-2"><a href="service-details.html">SEO</a>
-                        </li>
+                        @forelse(($footerServices ?? collect()) as $svc)
+                            <li class="mb-2">
+                                <a wire:navigate href="{{ route('service.detail', $svc->id) }}">{{ $svc->title }}</a>
+                            </li>
+                        @empty
+                            <li class="mb-2 text-muted">No services yet</li>
+                        @endforelse
                     </ul>
                 </div>
             </div>

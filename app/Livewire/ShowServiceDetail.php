@@ -17,6 +17,8 @@ class ShowServiceDetail extends Component
     {
         return view('livewire.show-service-detail', [
             'service' => $this->service
+        ])->layout('components.layouts.app', [
+            'title' => $this->service?->title ?? 'Service'
         ]);
     }
 }

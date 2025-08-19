@@ -9,10 +9,15 @@ class ShowHome extends Component
 {
     public function render()
     {
-        $services = Service::all();
+        $services = Service::active()
+            ->latest()
+            ->take(6)
+            ->get();
 
         return view('livewire.show-home', [
             'services' => $services
+        ])->layout('components.layouts.app', [
+            'title' => 'Home'
         ]);
     }
 }

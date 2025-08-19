@@ -1,4 +1,13 @@
 <main>
+    <style>
+        .team-card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 10px 24px rgba(0,0,0,.06); transition:transform .2s, box-shadow .2s; }
+        .team-card:hover { transform: translateY(-4px); box-shadow:0 18px 36px rgba(0,0,0,.10); }
+        .team-photo { width:100%; height:300px; object-fit:cover; object-position:center; display:block; }
+        .team-name { font-weight:700; margin-bottom:.25rem; }
+        .team-role { color:#6b7280; margin-bottom:1rem; }
+        .social a { width:36px; height:36px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:#f3f4f6; color:#374151; transition: background .2s, color .2s; }
+        .social a:hover { background:#d1fae5; color:#065f46; }
+    </style>
     <section class="page-header bg-tertiary">
         <div class="container">
             <div class="row">
@@ -77,28 +86,25 @@
                 </div>
             </div>
 
-            <div class="row position-relative">
+            <div class="row position-relative g-4">
                 @foreach($teams ?? [] as $team)
-                    <div class="col-xl-3 col-lg-4 col-md-6 mt-4">
-                        <div class="card bg-transparent border-0 text-center">
-                            <div class="card-img">
-                                <img loading="lazy" decoding="async" src="{{asset('storage/'. $team->images)}}" alt="Scarlet Pena"
-                                     class="rounded w-100" width="300" height="332">
-                                <ul class="card-social list-inline">
-                                    <li class="list-inline-item"><a class="facebook" href="{{$team?->fb_url}}"><i
-                                                class="fab fa-facebook"></i></a>
-                                    </li>
-                                    <li class="list-inline-item"><a class="twitter" href="{{$team?->tw_url}}"><i
-                                                class="fab fa-twitter"></i></a>
-                                    </li>
-                                    <li class="list-inline-item"><a class="instagram" href="{{$team?->in_url}}"><i
-                                                class="fab fa-instagram"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="card-body">
-                                <h3>{{$team?->name}}</h3>
-                                <p>{{$team?->description}}</p>
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="team-card text-center h-100">
+                            <img loading="lazy" decoding="async" src="{{ $team->image_url }}" alt="{{ $team->name }}" class="team-photo">
+                            <div class="p-4">
+                                <h5 class="team-name">{{ $team->name }}</h5>
+                                <p class="team-role">{{ $team->designation }}</p>
+                                <div class="social d-flex justify-content-center gap-2">
+                                    @if(!empty($team->fb_url))
+                                        <a class="facebook" href="{{ $team->fb_url }}" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                                    @endif
+                                    @if(!empty($team->tw_url))
+                                        <a class="twitter" href="{{ $team->tw_url }}" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                                    @endif
+                                    @if(!empty($team->in_url))
+                                        <a class="linkedin" href="{{ $team->in_url }}" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
