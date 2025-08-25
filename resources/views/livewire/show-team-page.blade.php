@@ -1,12 +1,17 @@
 <main>
     <style>
-        .team-card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 10px 24px rgba(0,0,0,.06); transition:transform .2s, box-shadow .2s; }
-        .team-card:hover { transform: translateY(-4px); box-shadow:0 18px 36px rgba(0,0,0,.10); }
+        /* Header */
+        .page-header.bg-tertiary{ position:relative; overflow:hidden; background:#0b0f14; color:#fff; }
+        .page-header h2, .page-header p, .breadcrumbs a{ color:#ffffff !important; }
+
+        /* Cards */
+        .team-card { background:#0f172a; border:1px solid rgba(148,163,184,.18); border-radius:16px; overflow:hidden; box-shadow:0 10px 26px rgba(0,0,0,.35); transition:transform .2s, box-shadow .2s; color:#e5e7eb; }
+        .team-card:hover { transform: translateY(-2px); box-shadow:0 14px 32px rgba(0,0,0,.5); }
         .team-photo { width:100%; height:300px; object-fit:cover; object-position:center; display:block; }
-        .team-name { font-weight:700; margin-bottom:.25rem; }
-        .team-role { color:#6b7280; margin-bottom:1rem; }
-        .social a { width:36px; height:36px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:#f3f4f6; color:#374151; transition: background .2s, color .2s; }
-        .social a:hover { background:#d1fae5; color:#065f46; }
+        .team-name { font-weight:700; margin-bottom:.25rem; color:#ffffff; }
+        .team-role { color:#cbd5e1; margin-bottom:1rem; }
+        .social a { width:36px; height:36px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:#0b1222; color:#cbd5e1; border:1px solid #1f2937; transition: background .2s, color .2s, border-color .2s; }
+        .social a:hover { background:#22c55e; color:#052e1a; border-color:#16a34a; }
     </style>
     <section class="page-header bg-tertiary">
         <div class="container">

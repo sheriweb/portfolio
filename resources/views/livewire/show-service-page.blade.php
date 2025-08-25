@@ -1,10 +1,18 @@
 <main>
     <style>
-        /* Lightweight page-scoped styles for nicer cards */
-        .service-card { background: #fff; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.06); }
-        .service-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,.10); }
-        .btn-mint { background:#d1fae5; color:#047857; border-color:#a7f3d0; }
-        .btn-mint:hover { background:#a7f3d0; color:#065f46; border-color:#6ee7b7; }
+        /* Dark theme styles aligned with Home */
+        .page-header.bg-tertiary{ position:relative; overflow:hidden; background:#0b0f14; color:#fff; }
+        .page-header h2, .page-header p, .breadcrumbs a{ color:#ffffff !important; }
+        .breadcrumbs{ opacity:.9; }
+
+        .service-card { background:#0f172a; border:1px solid rgba(148,163,184,.18); border-radius:14px; box-shadow:0 8px 22px rgba(0,0,0,.35); transition:transform .2s, box-shadow .2s; color:#e5e7eb; }
+        .service-card:hover { transform: translateY(-2px); box-shadow:0 12px 28px rgba(0,0,0,.5); }
+        .service-card h3{ color:#ffffff; font-weight:700; }
+        .service-card p{ color:#cbd5e1 !important; }
+
+        .btn-mint { background:#22c55e; color:#052e1a; border-color:#16a34a; }
+        .btn-mint:hover { background:#16a34a; color:#eafff4; border-color:#15803d; }
+
         .service-icon { width:72px; height:72px; border-radius:50%; display:flex; align-items:center; justify-content:center; background: var(--bg, #eef2ff); color: var(--fg, #4f46e5); }
     </style>
     <section class="page-header bg-tertiary">

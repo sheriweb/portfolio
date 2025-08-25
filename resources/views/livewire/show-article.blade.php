@@ -1,10 +1,23 @@
 <main>
     <style>
+        .section{ background:#0b0f14; }
+        .section-top{ padding-top: 100px !important; }
+        .section h1, .section h2, .section h3, .section p, .section a{ color:#ffffff !important; }
+        .section p.text-muted{ color:#cbd5e1 !important; }
+
+        .card{ background:#0f172a; border:1px solid rgba(148,163,184,.18); box-shadow:0 10px 26px rgba(0,0,0,.35); }
+        .card .card-body{ color:#e5e7eb; }
+        .card-title a{ color:#ffffff !important; }
+        .card-text{ color:#cbd5e1 !important; }
+
         .badge-soft { background: #eef2ff; color: #4f46e5; border-radius: 999px; padding: .35rem .6rem; font-weight: 600; font-size: .75rem; }
-        .btn-mint { background:#d1fae5; color:#047857; border-color:#a7f3d0; }
-        .btn-mint:hover { background:#a7f3d0; color:#065f46; border-color:#6ee7b7; }
+        .btn-mint { background:#22c55e; color:#052e1a; border-color:#16a34a; box-shadow:0 6px 18px rgba(34,197,94,.25); }
+        .btn-mint:hover { background:#16a34a; color:#eafff4; border-color:#15803d; box-shadow:0 8px 22px rgba(34,197,94,.35); }
+        /* Optional blue style: change class to btn-sky on links if preferred */
+        .btn-sky { background:#38bdf8; color:#052338; border-color:#0ea5e9; box-shadow:0 6px 18px rgba(56,189,248,.25); }
+        .btn-sky:hover { background:#0ea5e9; color:#e6f7ff; border-color:#0284c7; box-shadow:0 8px 22px rgba(56,189,248,.35); }
     </style>
-    <section class="section pt-5">
+    <section class="section section-top pt-5">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-12 text-center">

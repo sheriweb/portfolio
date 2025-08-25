@@ -1,8 +1,18 @@
 <main>
     <style>
+        .section{ background:#0b0f14; }
+        .section-top{ padding-top: 100px !important; }
+        .section h1, .section h2, .section h3, .breadcrumb a, .breadcrumb-item{ color:#ffffff !important; }
+        .breadcrumb .active{ opacity:.9; }
         .badge-soft { background: #eef2ff; color: #4f46e5; border-radius: 999px; padding: .35rem .6rem; font-weight: 600; font-size: .75rem; }
+        .card{ background:#0f172a; border:1px solid rgba(148,163,184,.18); box-shadow:0 10px 26px rgba(0,0,0,.35); }
+        .card .card-body{ color:#e5e7eb; }
+        .card .content p{ color:#cbd5e1; }
+        .text-muted{ color:#cbd5e1 !important; }
+        .btn-outline-secondary{ color:#e5e7eb; border-color:#334155; }
+        .btn-outline-secondary:hover{ background:#334155; color:#ffffff; border-color:#334155; }
     </style>
-    <section class="section pt-5">
+    <section class="section section-top pt-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-9">

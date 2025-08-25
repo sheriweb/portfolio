@@ -1,18 +1,20 @@
 <main>
     <style>
-        .service-hero-icon { width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#eef2ff; color:#4f46e5; }
-        .service-card { background:#fff; border-radius:14px; box-shadow:0 8px 24px rgba(0,0,0,.06); }
-        .service-card:hover { box-shadow:0 14px 30px rgba(0,0,0,.10); }
-        .btn-mint { background:#d1fae5; color:#047857; border-color:#a7f3d0; }
-        .btn-mint:hover { background:#a7f3d0; color:#065f46; border-color:#6ee7b7; }
-        .content :where(h2,h3,h4) { margin-top:1.25rem; margin-bottom:.5rem; }
-        .content p { color:#4b5563; line-height:1.8; margin-bottom:1rem; }
-        .content ul { padding-left:1.1rem; margin: .5rem 0 1rem; }
-        .content li { margin:.25rem 0; }
-        .page-header.bg-tertiary { position: relative; overflow: hidden; background: linear-gradient(180deg,#f8fafc, #ffffff); }
-        .shape { position:absolute; opacity:.4; }
+        .page-header.bg-tertiary { position: relative; overflow: hidden; background:#0b0f14; color:#fff; }
+        .page-header h2, .page-header p, .breadcrumbs a{ color:#ffffff !important; }
+        .shape { position:absolute; opacity:.25; }
         .shape.shape-left { left:-60px; top:0; height:100%; }
         .shape.shape-right { right:-60px; top:0; height:100%; }
+
+        .service-hero-icon { width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#eef2ff; color:#4f46e5; }
+        .service-card { background:#0f172a; border:1px solid rgba(148,163,184,.18); border-radius:14px; box-shadow:0 8px 22px rgba(0,0,0,.35); color:#e5e7eb; }
+        .service-card:hover { box-shadow:0 12px 28px rgba(0,0,0,.5); }
+        .btn-mint { background:#22c55e; color:#052e1a; border-color:#16a34a; }
+        .btn-mint:hover { background:#16a34a; color:#eafff4; border-color:#15803d; }
+        .content :where(h2,h3,h4) { margin-top:1.25rem; margin-bottom:.5rem; color:#ffffff; }
+        .content p { color:#cbd5e1; line-height:1.8; margin-bottom:1rem; }
+        .content ul { padding-left:1.1rem; margin: .5rem 0 1rem; }
+        .content li { margin:.25rem 0; }
         .sticky-card { position: sticky; top: 90px; }
     </style>
     <section class="page-header bg-tertiary">

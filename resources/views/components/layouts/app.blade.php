@@ -29,6 +29,9 @@
         .site-nav.nav-solid{ background:rgba(2,6,23,.85); backdrop-filter: blur(6px); box-shadow:0 8px 24px rgba(0,0,0,.25); }
         .site-nav .navbar{ padding:10px 0; }
         .site-nav .navbar-brand img{ height:auto; max-height:42px; }
+        /* Hide stray text (e.g., 'WEB APP') if present inside brand */
+        .site-nav .navbar-brand{ font-size:0; line-height:0; }
+        .site-nav .navbar-brand *{ font-size:initial; line-height:initial; }
         .site-nav .nav-link{ color:#ffffff !important; font-weight:600; padding:.5rem .9rem; position:relative; }
         .site-nav .nav-link:hover{ color:#ffffff !important; opacity:.95; }
         .site-nav .nav-link.active::after{ content:''; position:absolute; left:10px; right:10px; bottom:2px; height:3px; background:#ef4444; border-radius:3px; }

@@ -4,7 +4,7 @@
         .hero-slide{ position:relative; height:520px; background:#0b0f14; }
         .hero-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
         .hero-overlay{ position:absolute; inset:0; background:rgba(0,0,0,.55); }
-        .hero-inner { position:relative; z-index:2; padding: 90px 0; }
+        .hero-inner { position:relative; z-index:2; padding: 140px 0 80px; }
         .hero-title { font-weight:800; letter-spacing:-.5px; font-size: 3rem; color:#ffffff !important; }
         .hero-sub { color:#e5e7eb; font-size:1.05rem; max-width: 720px; }
 
