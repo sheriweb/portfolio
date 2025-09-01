@@ -31,6 +31,9 @@ class PageResource extends Resource
         return $form
             ->schema([
                 TextInput::make('title')->required(),
+                TextInput::make('slug')
+                    ->helperText('Leave empty to auto-generate from title')
+                    ->unique(ignoreRecord: true),
                 RichEditor::make('content')->columnSpan(2),
                 FileUpload::make('image')->columnSpan(2),
                 Select::make('status')->options([
@@ -45,6 +48,7 @@ class PageResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('title'),
+                TextColumn::make('slug'),
                 IconColumn::make('status')->boolean(),
             ])
             ->filters([
